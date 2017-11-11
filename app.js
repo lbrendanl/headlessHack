@@ -41,6 +41,6 @@ io.on('connection', function (socket) {
   hackSocket = socket;
 
   socket.on('close', function(msg) {
-    io.sockets.emit('close', {});
+    io.sockets.emit('close', { interval: msg.interval });
   })
 });
