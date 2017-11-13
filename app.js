@@ -39,8 +39,10 @@ server.listen(app.get('port'), function(){
 
 io.on('connection', function (socket) {
   hackSocket = socket;
+  console.log("connected~");
 
   socket.on('close', function(msg) {
+  	console.log("closing~~~");
     io.sockets.emit('close', { interval: msg.interval });
   })
 });
